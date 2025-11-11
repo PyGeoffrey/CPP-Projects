@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Sudoku Game</title>
+    <link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Interactive Sudoku</h1>
+            <p>Challenge your mind with the classic number puzzle!</p>
+            <p><a href="#" id="viewDocs">📖 View Documentation</a></p>
+        </header>
+
+        <div class="game-controls">
+            <div class="difficulty-selector">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="hard">Hard</option>
+                    <option value="insane">Insane</option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button id="startGame" class="btn btn-primary">Start Game</button>
+                <button id="newGame" class="btn btn-primary" disabled>New Game</button>
+                <button id="solveGame" class="btn btn-secondary" disabled>Solve</button>
+                <button id="checkGame" class="btn btn-success" disabled>Check</button>
+                <button id="clearGame" class="btn btn-warning" disabled>Clear</button>
+                <button id="printGame" class="btn btn-info" disabled>Print</button>
+            </div>
+        </div>
+
+        <div class="game-info">
+            <div class="timer">
+                <span>Time: </span>
+                <span id="timer">00:00</span>
+            </div>
+        </div>
+
+        <div class="sudoku-container">
+            <div id="sudoku-grid" class="sudoku-grid"></div>
+        </div>
+        
+        <!-- Drop zone for deleting numbers -->
+        <div id="delete-zone" class="delete-zone">
+            <span>🗑️ Drop here to delete</span>
+        </div>
+
+        <div class="number-pad">
+            <div class="number-buttons">
+                <button class="number-btn draggable" data-number="1" draggable="true">1</button>
+                <button class="number-btn draggable" data-number="2" draggable="true">2</button>
+                <button class="number-btn draggable" data-number="3" draggable="true">3</button>
+                <button class="number-btn draggable" data-number="4" draggable="true">4</button>
+                <button class="number-btn draggable" data-number="5" draggable="true">5</button>
+                <button class="number-btn draggable" data-number="6" draggable="true">6</button>
+                <button class="number-btn draggable" data-number="7" draggable="true">7</button>
+                <button class="number-btn draggable" data-number="8" draggable="true">8</button>
+                <button class="number-btn draggable" data-number="9" draggable="true">9</button>
+                <button class="number-btn draggable" data-number="0" draggable="true">Clear</button>
+            </div>
+        </div>
+
+        <div class="status-message" id="statusMessage"></div>
+    </div>
+
+    <!-- README Popup Modal -->
+    <div id="readmeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📖 Sudoku Game Documentation</h2>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="readmeContent">
+                <!-- README content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button id="doneBtn" class="btn btn-primary">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="sudoku.js"></script>
+</body>
+</html>
